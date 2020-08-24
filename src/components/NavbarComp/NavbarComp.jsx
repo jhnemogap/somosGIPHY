@@ -9,7 +9,9 @@ const NavbarComp = () => {
     <Navbar bg="dark" variant="dark">
       <Nav className="mr-auto">
         <Nav.Item>
-          <Link to={routeSearch()} className="btn-outline-light">Top Gifs</Link>
+          <Link to={routeSearch()} className="btn-outline-light">
+            Top Gifs
+          </Link>
         </Nav.Item>
       </Nav>
     </Navbar>
