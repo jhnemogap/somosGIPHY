@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import NavbarComp from "../../components/NavbarComp/NavbarComp";
+
 const propTypes = {
   /** Children are nodes expected to be of type `<ReadableFile />` */
   children: PropTypes.node.isRequired,
@@ -9,7 +11,7 @@ const propTypes = {
 const HeaderLayout = (props) => {
   return (
     <div>
-      <header>LOGO</header>
+      <NavbarComp />
       {props.children}
     </div>
   );
