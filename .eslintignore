@@ -1,0 +1,6 @@
+# Assets for production
+dist/
+.parcel-cache/
+
+# Dir node modules
+/node_modules/
