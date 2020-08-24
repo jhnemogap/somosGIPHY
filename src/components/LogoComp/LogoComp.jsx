@@ -10,7 +10,7 @@ const propsTypes = {
 };
 
 const defaultProps = {
-  width: "160",
+  width: "160"
 }
 
 const LogoComp = (props) => {
