@@ -23,6 +23,7 @@ const LogoComp = (props) => {
         <Link to={routeHome()}>
           
           <img type="image/jpg" src={LogoImg} alt="Logo" width={width} />
+          
       </Link>
     </picture>
   )
