@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
@@ -10,8 +10,8 @@ const propsTypes = {
 };
 
 const defaultProps = {
-  width: "160"
-}
+  width: "160",
+};
 
 const LogoComp = (props) => {
   const { width } = props;
