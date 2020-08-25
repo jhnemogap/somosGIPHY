@@ -52,12 +52,12 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "lint-staged"
+      "pre-push": "lint-staged",
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
-    "*{.js,.jsx,.ts,.tsx}": [
+    "*.{js,jsx,ts,tsx}": [
       "npm run format",
       "npm run lint-fix"
     ]
