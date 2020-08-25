@@ -20,12 +20,11 @@ const LogoComp = (props) => {
 
   return (
     <picture style={{ ...stylesProps }}>
-        <Link to={routeHome()}>
-          <img type="image/jpg" src={LogoImg} alt="Logo" width={width} />
-
+      <Link to={routeHome()}>
+        <img type="image/jpg" src={LogoImg} alt="Logo" width={width} />
       </Link>
     </picture>
-  )
+  );
 };
 
 LogoComp.propTypes = propsTypes;

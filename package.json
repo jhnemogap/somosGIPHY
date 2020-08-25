@@ -1,6 +1,6 @@
 {
   "name": "somogiphy",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "This application is a ...",
   "source": "src/index.html",
   "scripts": {
@@ -60,7 +60,7 @@
     }
   },
   "lint-staged": {
-    "*.{js, jsx, ts, tsx},{./src/**/*.{js,jsx,ts,tsx}}": [
+    "*{.js,.jsx,.ts,.tsx}": [
       "npm run format",
       "npm run lint-fix"
     ]
