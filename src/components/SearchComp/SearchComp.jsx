@@ -6,10 +6,12 @@ const SearchComp = () => {
     <Form>
       <Form.Row className="justify-content-center">
         <Col xs="auto">
-          <FormControl type="text" placeholder="" />
+          <FormControl type="text" size="lg" placeholder="" />
         </Col>
         <Col xs="auto">
-          <Button variant="primary">Buscar</Button>
+          <Button size="lg" variant="primary">
+            Buscar
+          </Button>
         </Col>
       </Form.Row>
     </Form>

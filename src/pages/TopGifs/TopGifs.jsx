@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Container } from "react-bootstrap";
 
@@ -7,7 +7,11 @@ import { setSearchString } from "../../redux/actions";
 
 const TopGifs = () => {
   const dispatch = useDispatch();
-  dispatch(setSearchString({ searchString: "trending" }));
+
+  useEffect(() => {
+    dispatch(setSearchString({ searchString: "trending" }));
+    return () => dispatch(setSearchString({ searchString: "" }));
+  }, []);
 
   return (
     <div>

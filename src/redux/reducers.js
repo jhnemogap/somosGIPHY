@@ -26,7 +26,7 @@ const initialState = {
 
 const reducers = (state = { ...initialState }, action) => {
   switch (action.type) {
-    case "SEARCH_STRING_SET": {
+    case "SET_SEARCH_STRING": {
       return {
         ...state,
         searchString: action.payload.searchString,
