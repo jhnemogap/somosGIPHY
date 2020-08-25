@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Image } from "react-bootstrap";
 
 const ResultsGrid = () => {
   const { heightImgGrid, searchResults } = useSelector((state) => state);
@@ -9,8 +9,11 @@ const ResultsGrid = () => {
     <Container fluid>
       <Row>
         {searchResults.map((item, index) => (
-          <Col key={index.toString()} className="text-center">
-            <img src={item.img} height={heightImgGrid} alt={`item ${index} ${1}`} />
+          <Col key={index.toString()} className="text-center py-1">
+            <picture>
+              <source type="image/webp" srcSet={item.urls.webp} />
+              <Image height={heightImgGrid} src={item.urls.gif} alt={item.title} />
+            </picture>
           </Col>
         ))}
       </Row>

@@ -1,6 +1,6 @@
 {
   "name": "somogiphy",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "This application is a ...",
   "source": "src/index.html",
   "scripts": {
