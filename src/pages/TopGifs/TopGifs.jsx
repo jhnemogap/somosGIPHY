@@ -1,43 +1,28 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Container, Badge } from "react-bootstrap";
 
 import ResultsGrid from "../../components/ResultsGrid/ResultsGrid";
 import { setSearchString, setSearchResults } from "../../redux/actions";
-
-const getData = async function (URL) {
-  const data = await fetch(URL);
-  const trending = await data.json();
-  return trending;
-};
-
-const transformDataGifs = function (info) {
-  const images = info.data.map((img) => ({
-    urls: {
-      webp: `https://i.giphy.com/media/${img["id"]}/giphy.webp`,
-      gif: `https://i.giphy.com/${img["id"]}.gif`,
-    },
-    title: img["title"],
-  }));
-  return images;
-};
+import { getDataCallBack } from "../../utils/requests";
+import { transformDataGifs } from "../../utils/transforms";
 
 const TopGifs = () => {
+  const [infoPromise, setInfoPromise] = useState({ data: [] });
+
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(setSearchString({ searchString: "trending-gifs" }));
-    return () => dispatch(setSearchString({ searchString: "" }));
   }, []);
 
   useEffect(() => {
-    const infoPromise = getData(process.env.URL_API_TRENDING);
-    infoPromise
-      .then((response) => transformDataGifs(response))
-      .then((dataClean) => dispatch(setSearchResults({ searchResults: dataClean })))
-      .catch((err) => console.error(err));
-    return () => dispatch(setSearchResults({ searchResults: [] }));
-  }, []);
+    if (infoPromise.data.length === 0) {
+      getDataCallBack(process.env.URL_API_TRENDING, setInfoPromise);
+    } else {
+      dispatch(setSearchResults({ searchResults: transformDataGifs(infoPromise) }));
+    }
+  }, [infoPromise]);
 
   return (
     <main>

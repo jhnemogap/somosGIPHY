@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Container } from "react-bootstrap";
+import { Container, Alert } from "react-bootstrap";
 
 import ResultsGrid from "../../components/ResultsGrid/ResultsGrid";
 
@@ -10,13 +10,17 @@ const Home = () => {
   return (
     <main>
       <Container fluid>
-        {searchString ? (
-          <p>Resultados para &quot;{searchString}&quot;</p>
-        ) : (
-          <p>Sin busquedas aún</p>
-        )}
+        {searchString ? <p>Resultados para &quot;{searchString}&quot;</p> : <p />}
       </Container>
-      <ResultsGrid />
+      {searchString ? (
+        <ResultsGrid />
+      ) : (
+        <Alert variant="success" className="text-center py-5">
+          <Alert.Heading>
+            <h1>Busca los Gifs que más te gustan</h1>
+          </Alert.Heading>
+        </Alert>
+      )}
     </main>
   );
 };
