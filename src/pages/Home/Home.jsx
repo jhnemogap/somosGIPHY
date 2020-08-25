@@ -1,13 +1,16 @@
 import React from "react";
+import { Container } from "react-bootstrap";
 
 import ResultsGrid from "../../components/ResultsGrid/ResultsGrid";
 
 const Home = () => {
   return (
-    <div>
-      <p>Hola, Mundo. Este es el HOME ...</p>
+    <main>
+      <Container fluid>
+        <p>Resultados para &quot;Nada aún&quot;</p>
+      </Container>
       <ResultsGrid />
-    </div>
+    </main>
   );
 };
 

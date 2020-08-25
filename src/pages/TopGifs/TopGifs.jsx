@@ -1,11 +1,14 @@
 import React from "react";
+import { Container } from "react-bootstrap";
 
 import ResultsGrid from "../../components/ResultsGrid/ResultsGrid";
 
 const TopGifs = () => {
   return (
     <div>
-      <p>TopGifs</p>
+      <Container fluid>
+        <p>Top Gifs</p>
+      </Container>
       <ResultsGrid />
     </div>
   );
