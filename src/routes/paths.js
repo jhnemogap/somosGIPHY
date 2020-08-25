@@ -2,3 +2,4 @@
 
 export const routeHome = () => "/";
 export const routeSearch = () => "/search";
+export const routeTopGifs = () => "/top-gifs";
