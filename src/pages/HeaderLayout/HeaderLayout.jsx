@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import NavbarComp from "../../components/NavbarComp/NavbarComp";
+import Header from "../../components/Header/Header";
 
 const propTypes = {
   /** Children are nodes expected to be of type `<ReadableFile />` */
@@ -11,7 +11,7 @@ const propTypes = {
 const HeaderLayout = (props) => {
   return (
     <div>
-      <NavbarComp />
+      <Header />
       {props.children}
     </div>
   );
