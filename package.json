@@ -53,10 +53,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "lint-staged",
-      "pre-applypatch": "lint-staged",
-      "prepare-commit-msg": "lint-staged",
-      "commit-msg": "lint-staged"
+      "pre-push": "lint-staged"
     }
   },
   "lint-staged": {
