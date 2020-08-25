@@ -1,5 +1,5 @@
-export const setCounter = (payload) => ({
-  type: "SEARCH_STRING_SET",
+export const setSearchString = (payload) => ({
+  type: "SET_SEARCH_STRING",
   payload,
 });
 

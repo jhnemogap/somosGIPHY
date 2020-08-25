@@ -1,5 +1,5 @@
 const initialState = {
-  heightImgGrid: "160px",
+  heightImgGrid: "280px",
   searchString: "",
   searchResults: [
     { img: "https://media.giphy.com/media/StT6DPSOmBIKQ/giphy.gif" },
