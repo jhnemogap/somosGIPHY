@@ -3,7 +3,7 @@ export const setSearchString = (payload) => ({
   payload,
 });
 
-export const setOther = (payload) => ({
-  type: "OTHER",
+export const setSearchResults = (payload) => ({
+  type: "SET_SEARCH_RESULTS",
   payload,
 });
