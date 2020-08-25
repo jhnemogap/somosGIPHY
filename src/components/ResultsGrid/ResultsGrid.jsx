@@ -9,7 +9,7 @@ const ResultsGrid = () => {
     <Container fluid>
       <Row>
         {searchResults.map((item, index) => (
-          <Col key={index.toString()}>
+          <Col key={index.toString()} className="text-center">
             <img src={item.img} height={heightImgGrid} alt={`item ${index} ${1}`} />
           </Col>
         ))}
