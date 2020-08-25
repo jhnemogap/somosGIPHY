@@ -3,15 +3,15 @@ import { Container } from "react-bootstrap";
 
 import ResultsGrid from "../../components/ResultsGrid/ResultsGrid";
 
-const Home = () => {
+const TopGifs = () => {
   return (
-    <main>
+    <div>
       <Container fluid>
-        <p>Resultados para &quot;Nada aún&quot;</p>
+        <p>Top Gifs</p>
       </Container>
       <ResultsGrid />
-    </main>
+    </div>
   );
 };
 
-export default Home;
+export default TopGifs;
