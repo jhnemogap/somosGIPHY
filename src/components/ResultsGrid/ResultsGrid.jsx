@@ -33,7 +33,7 @@ const ResultsGrid = () => {
     <Container fluid>
       <Row>
         {listGif.map((item, index) => (
-          <Col key={int(index + 1)}>
+          <Col key={index.toString()}>
             <img src={item.img} width={width} alt={`item ${index} ${1}`} />
           </Col>
         ))}
