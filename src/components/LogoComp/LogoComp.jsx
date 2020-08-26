@@ -11,7 +11,7 @@ const propsTypes = {
 };
 
 const defaultProps = {
-  width: "160",
+  width: "240",
   stylesProps: {},
 };
 

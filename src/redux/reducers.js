@@ -1,5 +1,6 @@
 const initialState = {
-  heightImgGrid: "240px",
+  heightImgGrid: "320px",
+  limitGifsRequest: 16,
   searchString: "",
   searchResults: [],
 };

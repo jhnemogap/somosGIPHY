@@ -9,7 +9,7 @@ import { transformDataGifs } from "../../utils/transforms";
 import { routeTopGifs } from "../../routes/paths";
 
 const TopGifs = () => {
-  const [infoByRequest, setInfoByRequest] = useState({ data: [] });
+  const [infoByRequest, setInfoByRequest] = useState([]);
 
   const dispatch = useDispatch();
 
@@ -19,19 +19,21 @@ const TopGifs = () => {
   }, []);
 
   useEffect(() => {
-    if (infoByRequest.data.length === 0) {
-      getDataCallBack(process.env.URL_API_TRENDING, setInfoByRequest);
+    if (infoByRequest.length === 0) {
+      getDataCallBack(`${process.env.URL_API_TRENDING}&limit=20`, (info) =>
+        setInfoByRequest(transformDataGifs(info))
+      );
     } else {
-      dispatch(setSearchResults({ searchResults: transformDataGifs(infoByRequest) }));
+      dispatch(setSearchResults({ searchResults: infoByRequest }));
     }
   }, [infoByRequest]);
 
   return (
     <main>
       <Container fluid>
-        <h4>
+        <h1>
           <Badge variant="light">Top Gifs</Badge>
-        </h4>
+        </h1>
       </Container>
       <ResultsGrid />
     </main>

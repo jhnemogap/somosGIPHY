@@ -10,14 +10,15 @@ import { routeTopGifs } from "../../routes/paths";
 
 const Home = () => {
   const [infoByRequest, setInfoByRequest] = useState([]);
-  const { searchString } = useSelector((state) => state);
+  const { searchString, limitGifsRequest } = useSelector((state) => state);
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (searchString !== "" && searchString !== routeTopGifs().slice(1)) {
       setInfoByRequest([]);
-      getDataCallBack(`${process.env.URL_API_SEARCH}&q=${searchString}`, (info) =>
-        setInfoByRequest(transformDataGifs(info))
+      getDataCallBack(
+        `${process.env.URL_API_SEARCH}&limit=${limitGifsRequest}&q=${searchString}`,
+        (info) => setInfoByRequest(transformDataGifs(info))
       );
     }
   }, [searchString]);
@@ -35,7 +36,7 @@ const Home = () => {
   return (
     <main>
       <Container fluid>
-        {searchString ? <p>Resultados para &quot;{searchString}&quot;</p> : <p />}
+        {searchString ? <h3>Resultados para &quot;{searchString}&quot;</h3> : <p />}
       </Container>
       {searchString ? (
         <ResultsGrid />
