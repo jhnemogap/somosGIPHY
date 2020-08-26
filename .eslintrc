@@ -233,7 +233,7 @@
     "operator-assignment": 0,
     "operator-linebreak": [
       1,
-      "before"
+      "after"
     ],
     "padded-blocks": 0,
     "prefer-const": 2,
