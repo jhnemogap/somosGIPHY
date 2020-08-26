@@ -9,22 +9,28 @@ import { transformDataGifs } from "../../utils/transforms";
 import { routeTopGifs } from "../../routes/paths";
 
 const Home = () => {
-  const [infoByRequest, setInfoByRequest] = useState({ data: [] });
-
+  const [infoByRequest, setInfoByRequest] = useState([]);
   const { searchString } = useSelector((state) => state);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (searchString !== "" && searchString !== routeTopGifs().slice(1)) {
+      setInfoByRequest([]);
+      getDataCallBack(`${process.env.URL_API_SEARCH}&q=${searchString}`, (info) =>
+        setInfoByRequest(transformDataGifs(info))
+      );
+    }
+  }, [searchString]);
 
   useEffect(() => {
     if (
       searchString !== "" &&
       searchString !== routeTopGifs().slice(1) &&
-      infoByRequest.data.length === 0
+      infoByRequest.length > 0
     ) {
-      getDataCallBack(`${process.env.URL_API_SEARCH}&q=${searchString}`, setInfoByRequest);
-    } else if (infoByRequest.data.length !== 0) {
-      dispatch(setSearchResults({ searchResults: transformDataGifs(infoByRequest) }));
+      dispatch(setSearchResults({ searchResults: infoByRequest }));
     }
-  }, [searchString, infoByRequest]);
+  }, [infoByRequest]);
 
   return (
     <main>

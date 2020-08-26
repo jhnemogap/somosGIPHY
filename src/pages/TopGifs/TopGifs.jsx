@@ -15,6 +15,7 @@ const TopGifs = () => {
 
   useEffect(() => {
     dispatch(setSearchString({ searchString: routeTopGifs().slice(1) }));
+    return () => dispatch(setSearchString({ searchString: "" }));
   }, []);
 
   useEffect(() => {
