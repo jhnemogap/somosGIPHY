@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Container, Badge } from "react-bootstrap";
 
 import ResultsGrid from "../../components/ResultsGrid/ResultsGrid";
@@ -11,16 +11,16 @@ import { routeTopGifs } from "../../routes/paths";
 const TopGifs = () => {
   const [infoByRequest, setInfoByRequest] = useState([]);
 
+  const limitGifsRequest = useSelector((state) => state.limitGifsRequest);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(setSearchString({ searchString: routeTopGifs().slice(1) }));
-    return () => dispatch(setSearchString({ searchString: "" }));
   }, []);
 
   useEffect(() => {
     if (infoByRequest.length === 0) {
-      getDataCallBack(`${process.env.URL_API_TRENDING}&limit=20`, (info) =>
+      getDataCallBack(`${process.env.URL_API_TRENDING}&limit=${limitGifsRequest}`, (info) =>
         setInfoByRequest(transformDataGifs(info))
       );
     } else {
