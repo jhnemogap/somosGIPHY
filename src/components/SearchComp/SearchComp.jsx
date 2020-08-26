@@ -1,35 +1,30 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Form, FormControl, Button, Col } from "react-bootstrap";
 
 import { setSearchString } from "../../redux/actions";
-import { routeTopGifs } from "../../routes/paths";
 
 const SearchComp = () => {
   const [searchText, setSearchText] = useState("");
 
-  const { searchString } = useSelector((state) => state);
   const dispatch = useDispatch();
 
   const handleOnChange = (event) => {
     setSearchText(event.target.value);
   };
 
-  const handleOnSubmit = () => {
+  const handleOnSubmit = (event) => {
+    event.preventDefault();
     dispatch(setSearchString({ searchString: searchText }));
   };
 
-  useEffect(() => {
-    if (searchString === routeTopGifs().slice(1)) {
-      setSearchText("");
-    }
-  }, [searchString]);
-
   return (
-    <Form>
+    <Form id="searcherGifs" onSubmit={handleOnSubmit} action="/search">
       <Form.Row className="justify-content-center">
         <Col sm={6} className="mb-3">
           <FormControl
+            id="inputSearch"
+            name="q"
             type="text"
             size="lg"
             placeholder=""
@@ -38,7 +33,7 @@ const SearchComp = () => {
           />
         </Col>
         <Col sm="auto">
-          <Button size="lg" variant="primary" type="button" onClick={handleOnSubmit}>
+          <Button size="lg" variant="primary" type="submit">
             Buscar
           </Button>
         </Col>
