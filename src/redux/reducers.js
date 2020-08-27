@@ -23,6 +23,13 @@ const reducers = (state = { ...initialState }, action) => {
       };
     }
 
+    case actionType.typeAppendSearchResults: {
+      return {
+        ...state,
+        searchResults: state.searchResults.concat(action.payload.searchResults),
+      };
+    }
+
     default:
       return state;
   }

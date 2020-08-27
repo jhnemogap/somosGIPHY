@@ -10,7 +10,14 @@ export const setSearchResults = (payload) => ({
   payload,
 });
 
+const typeAppendSearchResults = "APPEND_SEARCH_RESULTS";
+export const appendSearchResults = (payload) => ({
+  type: typeAppendSearchResults,
+  payload,
+});
+
 export default {
   typeSetSearchString,
   typeSetSearchResults,
+  typeAppendSearchResults,
 };

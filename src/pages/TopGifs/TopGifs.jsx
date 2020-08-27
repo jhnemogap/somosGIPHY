@@ -35,7 +35,7 @@ const TopGifs = () => {
           <Badge variant="light">Top Gifs</Badge>
         </h1>
       </Container>
-      <ResultsGrid />
+      <ResultsGrid urlApi={URL_SEARCH_TRENDING} offset={limitGifsRequest} />
     </main>
   );
 };

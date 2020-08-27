@@ -39,7 +39,7 @@ const Home = () => {
         {searchString ? <h3>Resultados para &quot;{searchString}&quot;</h3> : <p />}
       </Container>
       {searchString ? (
-        <ResultsGrid />
+        <ResultsGrid urlApi={URL_SEARCH_HOME} offset={limitGifsRequest} />
       ) : (
         <Alert variant="success" className="text-center py-5">
           <Alert.Heading>
