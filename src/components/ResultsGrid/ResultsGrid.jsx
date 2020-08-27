@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Container, Row, Col, Image, Button } from "react-bootstrap";
+import PropTypes from "prop-types";
+import { Container, Row, Image, Button } from "react-bootstrap";
 
 import { getDataCallBack } from "../../utils/requests";
 import { transformDataGifs } from "../../utils/transforms";
 import { appendSearchResults } from "../../redux/actions";
+
+const propsTypes = {
+  urlApi: PropTypes.string.isRequired,
+  offset: PropTypes.number.isRequired,
+};
 
 const ResultsGrid = (props) => {
   const { urlApi, offset } = props;
@@ -39,14 +45,12 @@ const ResultsGrid = (props) => {
 
   return (
     <Container fluid style={{ marginBottom: "2em" }}>
-      <Row>
+      <Row className="mx-1 justify-content-center">
         {searchResults.map((item, index) => (
-          <Col key={index.toString()} className="text-center p-1">
-            <picture>
-              <source type="image/webp" srcSet={item.urls.webp} />
-              <Image type="image/gif" height={heightImgGrid} src={item.urls.gif} alt={item.title} />
-            </picture>
-          </Col>
+          <picture key={index.toString()} className="p-1">
+            <source type="image/webp" srcSet={item.urls.webp} />
+            <Image type="image/gif" height={heightImgGrid} src={item.urls.gif} alt={item.title} />
+          </picture>
         ))}
       </Row>
       <Button
@@ -62,5 +66,7 @@ const ResultsGrid = (props) => {
     </Container>
   );
 };
+
+ResultsGrid.propTypes = propsTypes;
 
 export default ResultsGrid;
