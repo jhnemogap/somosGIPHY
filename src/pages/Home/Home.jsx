@@ -10,16 +10,16 @@ import { routeTopGifs } from "../../routes/paths";
 
 const Home = () => {
   const [infoByRequest, setInfoByRequest] = useState([]);
+
   const { searchString, limitGifsRequest } = useSelector((state) => state);
   const dispatch = useDispatch();
+
+  const URL_SEARCH_HOME = `${process.env.URL_API_SEARCH}&limit=${limitGifsRequest}&q=${searchString}`;
 
   useEffect(() => {
     if (searchString !== "" && searchString !== routeTopGifs().slice(1)) {
       setInfoByRequest([]);
-      getDataCallBack(
-        `${process.env.URL_API_SEARCH}&limit=${limitGifsRequest}&q=${searchString}`,
-        (info) => setInfoByRequest(transformDataGifs(info))
-      );
+      getDataCallBack(URL_SEARCH_HOME, (info) => setInfoByRequest(transformDataGifs(info)));
     }
   }, [searchString]);
 

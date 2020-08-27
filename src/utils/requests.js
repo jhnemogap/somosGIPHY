@@ -1,9 +1,8 @@
-export const getDataCallBack = function (URL, callBack) {
-  const data = fetch(URL);
-  data
+export const getDataCallBack = function (URL, response) {
+  fetch(URL)
     .then((res) => res.json())
     .then((res2) => {
-      callBack(res2);
+      response(res2);
     })
     .catch((err) => console.error(err));
 };

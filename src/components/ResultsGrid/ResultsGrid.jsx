@@ -12,7 +12,7 @@ const ResultsGrid = () => {
           <Col key={index.toString()} className="text-center py-1">
             <picture>
               <source type="image/webp" srcSet={item.urls.webp} />
-              <Image height={heightImgGrid} src={item.urls.gif} alt={item.title} />
+              <Image type="image/gif" height={heightImgGrid} src={item.urls.gif} alt={item.title} />
             </picture>
           </Col>
         ))}

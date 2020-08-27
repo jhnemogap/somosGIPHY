@@ -1,3 +1,5 @@
+import actionType from "./actions";
+
 const initialState = {
   heightImgGrid: "320px",
   limitGifsRequest: 16,
@@ -7,14 +9,14 @@ const initialState = {
 
 const reducers = (state = { ...initialState }, action) => {
   switch (action.type) {
-    case "SET_SEARCH_STRING": {
+    case actionType.typeSetSearchString: {
       return {
         ...state,
         searchString: action.payload.searchString,
       };
     }
 
-    case "SET_SEARCH_RESULTS": {
+    case actionType.typeSetSearchResults: {
       return {
         ...state,
         searchResults: action.payload.searchResults,

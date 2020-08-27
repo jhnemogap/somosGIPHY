@@ -8,11 +8,10 @@ import SearchComp from "../SearchComp/SearchComp";
 const styles = {
   container: {
     padding: "16px",
-    textAlign: "center",
   },
   logo: {
     display: "inline-block",
-    marginBottom: "8px",
+    marginBottom: "16px",
   },
 };
 
@@ -20,8 +19,8 @@ const Header = () => {
   return (
     <header>
       <NavbarComp />
-      <Container style={styles.container}>
-        <LogoComp stylesProps={styles.logo} />
+      <Container className="text-center" style={styles.container}>
+        <LogoComp width="280px" styles={styles.logo} />
         <SearchComp />
       </Container>
     </header>

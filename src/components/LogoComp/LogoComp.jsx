@@ -7,19 +7,19 @@ import { routeHome } from "../../routes/paths";
 
 const propsTypes = {
   width: PropTypes.string,
-  stylesProps: PropTypes.object,
+  styles: PropTypes.object,
 };
 
 const defaultProps = {
   width: "240",
-  stylesProps: {},
+  styles: {},
 };
 
 const LogoComp = (props) => {
-  const { width, stylesProps } = props;
+  const { width, styles } = props;
 
   return (
-    <picture style={{ ...stylesProps }}>
+    <picture style={{ ...styles }}>
       <Link to={routeHome()}>
         <img type="image/jpg" src={LogoImg} alt="Logo" width={width} />
       </Link>

@@ -14,15 +14,15 @@ const TopGifs = () => {
   const limitGifsRequest = useSelector((state) => state.limitGifsRequest);
   const dispatch = useDispatch();
 
+  const URL_SEARCH_TRENDING = `${process.env.URL_API_TRENDING}&limit=${limitGifsRequest}`;
+
   useEffect(() => {
     dispatch(setSearchString({ searchString: routeTopGifs().slice(1) }));
   }, []);
 
   useEffect(() => {
     if (infoByRequest.length === 0) {
-      getDataCallBack(`${process.env.URL_API_TRENDING}&limit=${limitGifsRequest}`, (info) =>
-        setInfoByRequest(transformDataGifs(info))
-      );
+      getDataCallBack(URL_SEARCH_TRENDING, (info) => setInfoByRequest(transformDataGifs(info)));
     } else {
       dispatch(setSearchResults({ searchResults: infoByRequest }));
     }

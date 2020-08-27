@@ -1,9 +1,16 @@
+const typeSetSearchString = "SET_SEARCH_STRING";
 export const setSearchString = (payload) => ({
-  type: "SET_SEARCH_STRING",
+  type: typeSetSearchString,
   payload,
 });
 
+const typeSetSearchResults = "SET_SEARCH_RESULTS";
 export const setSearchResults = (payload) => ({
-  type: "SET_SEARCH_RESULTS",
+  type: typeSetSearchResults,
   payload,
 });
+
+export default {
+  typeSetSearchString,
+  typeSetSearchResults,
+};
