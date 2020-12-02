@@ -26,6 +26,7 @@
   },
   "plugins": [
     "react",
+    "react-hooks",
     "jsx-a11y",
     "import"
   ],
@@ -232,7 +233,7 @@
     "operator-assignment": 0,
     "operator-linebreak": [
       1,
-      "before"
+      "after"
     ],
     "padded-blocks": 0,
     "prefer-const": 2,
@@ -246,6 +247,8 @@
     "jsx-a11y/click-events-have-key-events": 0,
     "jsx-a11y/no-noninteractive-element-interactions": 0,
     "jsx-a11y/media-has-caption": 0,
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
     "react/display-name": 0,
     "react/jsx-boolean-value": 0,
     "react/jsx-closing-bracket-location": 2,

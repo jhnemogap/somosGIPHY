@@ -1,35 +1,32 @@
+import actionType from "./actions";
+
 const initialState = {
-  heightImgGrid: "240px",
+  heightImgGrid: "320px",
+  limitGifsRequest: 16,
   searchString: "",
-  searchResults: [
-    { img: "https://media.giphy.com/media/StT6DPSOmBIKQ/giphy.gif" },
-    { img: "https://media.giphy.com/media/l1J9MpthOkxEmmTG8/giphy.gif" },
-    { img: "https://media.giphy.com/media/l1J9MpthOkxEmmTG8/giphy.gif" },
-    { img: "https://media.giphy.com/media/4pMX5rJ4PYAEM/giphy.gif" },
-    { img: "https://media.giphy.com/media/l1J9HDdEWq7rAs1hu/giphy.gif" },
-    { img: "https://media.giphy.com/media/2zozXhK8u6xvV560SG/giphy.gif" },
-    { img: "https://media.giphy.com/media/StT6DPSOmBIKQ/giphy.gif" },
-    { img: "https://media.giphy.com/media/2zozXhK8u6xvV560SG/giphy.gif" },
-    { img: "https://media.giphy.com/media/l1J9MpthOkxEmmTG8/giphy.gif" },
-    { img: "https://media.giphy.com/media/l1J9HDdEWq7rAs1hu/giphy.gif" },
-    { img: "https://media.giphy.com/media/4pMX5rJ4PYAEM/giphy.gif" },
-    { img: "https://media.giphy.com/media/l1J9MpthOkxEmmTG8/giphy.gif" },
-    { img: "https://media.giphy.com/media/2zozXhK8u6xvV560SG/giphy.gif" },
-    { img: "https://media.giphy.com/media/4pMX5rJ4PYAEM/giphy.gif" },
-    { img: "https://media.giphy.com/media/l1J9MpthOkxEmmTG8/giphy.gif" },
-    { img: "https://media.giphy.com/media/l1J9HDdEWq7rAs1hu/giphy.gif" },
-    { img: "https://media.giphy.com/media/StT6DPSOmBIKQ/giphy.gif" },
-    { img: "https://media.giphy.com/media/2zozXhK8u6xvV560SG/giphy.gif" },
-    { img: "https://media.giphy.com/media/l1J9HDdEWq7rAs1hu/giphy.gif" },
-  ],
+  searchResults: [],
 };
 
 const reducers = (state = { ...initialState }, action) => {
   switch (action.type) {
-    case "SEARCH_STRING_SET": {
+    case actionType.typeSetSearchString: {
       return {
         ...state,
         searchString: action.payload.searchString,
+      };
+    }
+
+    case actionType.typeSetSearchResults: {
+      return {
+        ...state,
+        searchResults: action.payload.searchResults,
+      };
+    }
+
+    case actionType.typeAppendSearchResults: {
+      return {
+        ...state,
+        searchResults: state.searchResults.concat(action.payload.searchResults),
       };
     }
 

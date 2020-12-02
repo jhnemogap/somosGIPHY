@@ -6,11 +6,11 @@ import { routeTopGifs } from "../../routes/paths";
 
 const NavbarComp = () => {
   return (
-    <Navbar bg="dark" variant="dark">
+    <Navbar bg="dark" variant="dark" className="py-3">
       <Container>
         <Nav className="mr-auto">
           <Nav.Item>
-            <Link to={routeTopGifs()} className="btn-outline-light">
+            <Link to={routeTopGifs()} className="btn-outline-light" style={{ fontSize: "1.6rem" }}>
               Top Gifs
             </Link>
           </Nav.Item>

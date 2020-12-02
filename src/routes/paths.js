@@ -2,4 +2,4 @@
 
 export const routeHome = () => "/";
 export const routeSearch = () => "/search";
-export const routeTopGifs = () => "/trending";
+export const routeTopGifs = () => "/trending-gifs";
